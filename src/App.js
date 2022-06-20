@@ -1,11 +1,18 @@
-import logo from "./logo.svg";
 import "./App.css";
+import Navbar from "./Components/Navbar";
 
 import * as React from "react";
-import Button from "@mui/material/Button";
+import SimpleContainer from "./Components/SimpleContainer";
+import InputForm from "./Components/InputForm";
 
 function App() {
-  return <Button variant="contained">Hello World</Button>;
+  return (
+    <>
+      <Navbar />
+      <SimpleContainer />
+      <InputForm />
+    </>
+  );
 }
 
 export default App;
