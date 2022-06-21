@@ -1,6 +1,7 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Copyright from "./Copyright";
+import Link from "@mui/material/Link";
 
 export default function Footer() {
   return (
@@ -15,9 +16,17 @@ export default function Footer() {
           color="text.secondary"
           component="p"
         >
-          Coded by Louisa Blackshear-Jones
+          Coded by{" "}
+          <Link color="inherit" href="https://louisadbjones.com/">
+            Louisa Blackshear-Jones
+          </Link>{" "}
         </Typography>
         <Copyright />
+        <Typography variant="body2" align="center" color="text.secondary">
+          <Link color="inherit" href="https://louisadbjones.com/">
+            Github
+          </Link>{" "}
+        </Typography>
       </Box>
     </>
   );
