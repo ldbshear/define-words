@@ -8,7 +8,10 @@ export default function InputForm() {
         component="form"
         noValidate
         autoComplete="off"
-        sx={{ bgcolor: "#cfe8fc", height: "100vh" }}
+        sx={{
+          bgcolor: "#cfe8fc",
+          height: "100vh",
+        }}
       >
         <div align="center">
           <TextField
