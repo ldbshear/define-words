@@ -7,7 +7,7 @@ export default function Title() {
       <Typography
         align="center"
         fontWeight={500}
-        marginTop={15}
+        marginTop={12}
         variant="h2"
         component="div"
         className="Title"

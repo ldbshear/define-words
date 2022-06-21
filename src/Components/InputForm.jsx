@@ -6,17 +6,20 @@ export default function InputForm() {
     <>
       <Box
         component="form"
-        sx={{
-          "& .MuiTextField-root": { m: 1, width: "25ch" },
-        }}
         noValidate
         autoComplete="off"
+        sx={{ bgcolor: "#cfe8fc", height: "100vh" }}
       >
-        <div>
+        <div align="center">
           <TextField
+            sx={{
+              marginTop: "2.5rem",
+              width: 500,
+              maxWidth: "100%",
+            }}
             id="outlined-helperText"
-            label="Type word"
-            defaultValue="Enter word here"
+            label="Enter word"
+            type="search"
           />
         </div>
       </Box>
