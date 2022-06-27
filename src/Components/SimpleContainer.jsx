@@ -4,7 +4,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Title from "./Title";
-import Footer from "./Footer";
+
 import InputForm from "./InputForm";
 
 export default function SimpleContainer() {
@@ -18,7 +18,7 @@ export default function SimpleContainer() {
         </Box>
         <InputForm />
       </Container>
-      <Footer />
+      
     </React.Fragment>
   );
 }

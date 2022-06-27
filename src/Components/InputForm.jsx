@@ -4,14 +4,14 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Definition from "./Definition";
 import axios from "axios";
+import Footer from './Footer'
 
 export default function InputForm(props) {
   const [userInput, showUserInput] = useState("");
   const [userWord, showUserWord] = useState("");
-  const [primaryPOS, showPrimaryPOS] = useState("");
-  const [primaryDefinition, showPrimaryDefinition] = useState("");
-  // const [secondaryPOS, showSecondaryPOS] = useState("");
-  // const [secondaryDefinition, showSecondaryDefinition] = useState("");
+
+  const [definedWord, showDefinedWord] = useState([]);
+
   const [searchResult, displaySearchResult] = useState(false);
 
   function handleClick(e) {
@@ -25,17 +25,12 @@ export default function InputForm(props) {
     displaySearchResult(false);
   }
   function handleData(response) {
-    console.log(response.data);
-    const wordData = response.data[0];
-    const pos = wordData.meanings[0].partOfSpeech;
-    const def = wordData.meanings[0].definitions[0].definition;
-    // const pos2 = wordData.meanings[1].partOfSpeech;
-    // const def2 = wordData.meanings[1].definitions[1].definition;
-    console.log(wordData);
-    showPrimaryPOS(pos);
-    showPrimaryDefinition(def);
-    // showSecondaryPOS(pos2);
-    // showSecondaryDefinition(def2);
+    const wordDataPOS = response.data[0].meanings;
+
+    showDefinedWord(wordDataPOS);
+
+    //showGrammar(wordData.meanings);
+    //showPrimaryDefinition(def);
   }
 
   useEffect(() => {
@@ -107,31 +102,24 @@ export default function InputForm(props) {
 
         {searchResult && (
           <div align="start">
-            {/* <Card sx={{ maxWidth: 475, marginTop: 10 }}>
-              <CardContent>
-                <Typography
-                  sx={{ fontSize: 44 }}
-                  color="text.secondary"
-                  gutterBottom
-                >
-                  {`Searching for ${userWord}`}
-                </Typography>
-              </CardContent>
-            </Card> */}
+            <div></div>
+            {definedWord.map((word, index) => {
+              const wordDef = word.definitions;
+              const [{ definition }] = wordDef;
 
-            <Definition
-              searchWord={userWord}
-              partOfSpeech={primaryPOS}
-              meaning={primaryDefinition}
-            />
-            {/* <Definition
-              searchWord={userWord}
-              partOfSpeech={secondaryPOS}
-              meaning={secondaryDefinition}
-             
-            /> */}
+              return (
+                <Definition
+                  key={index}
+                  searchWord={userWord}
+                  partOfSpeech={word.partOfSpeech}
+                  meaning={definition}
+                  synonyms={word.synonyms}
+                />
+              );
+            })}
           </div>
         )}
+        <Footer />
       </Box>
     </>
   );
