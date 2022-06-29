@@ -25,6 +25,7 @@ export default function InputForm(props) {
   function handleChange(e) {
     showUserInput(e.target.value);
     displaySearchResult(false);
+    getSound(null);
   }
   function handleData(response) {
     const wordSyllables = response.data[0].phonetics[0].text;
@@ -32,9 +33,14 @@ export default function InputForm(props) {
     const wordDataPOS = response.data[0].meanings;
     console.log(response.data[0]);
     console.log(wordSyllables);
+    console.log(wordSound);
     getPhonics(wordSyllables);
     showDefinedWord(wordDataPOS);
-    getSound(wordSound);
+    if (!wordSound) {
+      return;
+    } else {
+      getSound(wordSound);
+    }
 
     //showGrammar(wordData.meanings);
     //showPrimaryDefinition(def);
