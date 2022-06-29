@@ -4,19 +4,18 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Definition from "./Definition";
 import axios from "axios";
-import Footer from './Footer'
+import Footer from "./Footer";
 
 export default function InputForm(props) {
   const [userInput, showUserInput] = useState("");
   const [userWord, showUserWord] = useState("");
-
+  const [phonics, getPhonics] = useState("");
   const [definedWord, showDefinedWord] = useState([]);
-
   const [searchResult, displaySearchResult] = useState(false);
 
   function handleClick(e) {
     e.preventDefault();
-    showUserWord(userInput.toUpperCase());
+    showUserWord(userInput.toLowerCase());
 
     displaySearchResult(true);
   }
@@ -25,8 +24,11 @@ export default function InputForm(props) {
     displaySearchResult(false);
   }
   function handleData(response) {
+    const wordSyllables = response.data[0].phonetics[0].text;
     const wordDataPOS = response.data[0].meanings;
-
+    console.log(response.data[0]);
+    console.log(wordSyllables);
+    getPhonics(wordSyllables);
     showDefinedWord(wordDataPOS);
 
     //showGrammar(wordData.meanings);
@@ -110,6 +112,8 @@ export default function InputForm(props) {
               return (
                 <Definition
                   key={index}
+                  phonics={phonics}
+                  sound={""}
                   searchWord={userWord}
                   partOfSpeech={word.partOfSpeech}
                   meaning={definition}
