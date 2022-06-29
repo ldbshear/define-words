@@ -54,13 +54,15 @@ export default function Definition(props) {
                 </Button>
                 <Typography>{`${props.phonics}`}</Typography>
 
-                <Typography sx={{ fontSize: 18 }}>
+                <Typography sx={({ fontSize: 18 }, { lineHeight: 3 })}>
                   {`Part of speech: ${props.partOfSpeech}`}
                 </Typography>
-                <Typography sx={{ fontSize: 20, fontStyle: "italic" }}>
+                <Typography
+                  sx={{ fontSize: 20, fontStyle: "italic", lineHeight: 2 }}
+                >
                   {`Definition of ${props.searchWord} as a ${props.partOfSpeech}:`}
                 </Typography>
-                <Typography sx={{ fontSize: 24 }}>
+                <Typography sx={{ fontSize: 24, lineHeight: 1.75 }}>
                   {` ${props.meaning}`}
                 </Typography>
               </CardContent>
