@@ -5,7 +5,6 @@ import Button from "@mui/material/Button";
 import Definition from "./Definition";
 import axios from "axios";
 import Footer from "./Footer";
-//import Sound from "./Sound";
 
 export default function InputForm(props) {
   const [userInput, showUserInput] = useState("");
@@ -14,7 +13,6 @@ export default function InputForm(props) {
   const [sound, getSound] = useState("");
   const [definedWord, showDefinedWord] = useState([]);
   const [searchResult, displaySearchResult] = useState(false);
-  //const audioElement = new Audio(sound);
 
   function handleClick(e) {
     e.preventDefault();
@@ -41,9 +39,6 @@ export default function InputForm(props) {
     } else {
       getSound(wordSound);
     }
-
-    //showGrammar(wordData.meanings);
-    //showPrimaryDefinition(def);
   }
 
   useEffect(() => {
@@ -122,7 +117,6 @@ export default function InputForm(props) {
 
               return (
                 <>
-                  {/* <Sound sound={sound} /> */}
                   <Definition
                     key={index}
                     phonics={phonics}
@@ -133,13 +127,6 @@ export default function InputForm(props) {
                     synonyms={word.synonyms}
                   />
                 </>
-
-                // {audioElement.addEventListener(
-                //       "canplaythrough",
-                //       (e) => {
-                //         audioElement.play();
-                //       }
-                //     )}
               );
             })}
           </div>

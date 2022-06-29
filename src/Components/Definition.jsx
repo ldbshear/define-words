@@ -28,12 +28,6 @@ export default function Definition(props) {
                 <Typography sx={{ fontSize: 24 }}>
                   {` ${props.meaning}`}
                 </Typography>
-                {/* <Typography sx={{ fontSize: 24 }}>
-                {`Synonyms: ${props.synonyms}`}
-              </Typography>
-              <Typography sx={{ fontSize: 24 }}>
-                {`Antonym: ${props.antonyms}`}
-              </Typography> */}
               </CardContent>
             </Card>
           </Paper>
@@ -53,8 +47,6 @@ export default function Definition(props) {
 
                 <Button
                   onClick={(e) => {
-                    //alert("clicked");
-
                     wordAudioElement.play();
                   }}
                 >
@@ -71,12 +63,6 @@ export default function Definition(props) {
                 <Typography sx={{ fontSize: 24 }}>
                   {` ${props.meaning}`}
                 </Typography>
-                {/* <Typography sx={{ fontSize: 24 }}>
-                {`Synonyms: ${props.synonyms}`}
-              </Typography>
-              <Typography sx={{ fontSize: 24 }}>
-                {`Antonym: ${props.antonyms}`}
-              </Typography> */}
               </CardContent>
             </Card>
           </Paper>
