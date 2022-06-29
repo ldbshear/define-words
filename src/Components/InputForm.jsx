@@ -5,13 +5,16 @@ import Button from "@mui/material/Button";
 import Definition from "./Definition";
 import axios from "axios";
 import Footer from "./Footer";
+//import Sound from "./Sound";
 
 export default function InputForm(props) {
   const [userInput, showUserInput] = useState("");
   const [userWord, showUserWord] = useState("");
   const [phonics, getPhonics] = useState("");
+  const [sound, getSound] = useState("");
   const [definedWord, showDefinedWord] = useState([]);
   const [searchResult, displaySearchResult] = useState(false);
+  //const audioElement = new Audio(sound);
 
   function handleClick(e) {
     e.preventDefault();
@@ -25,11 +28,13 @@ export default function InputForm(props) {
   }
   function handleData(response) {
     const wordSyllables = response.data[0].phonetics[0].text;
+    const wordSound = response.data[0].phonetics[0].audio;
     const wordDataPOS = response.data[0].meanings;
     console.log(response.data[0]);
     console.log(wordSyllables);
     getPhonics(wordSyllables);
     showDefinedWord(wordDataPOS);
+    getSound(wordSound);
 
     //showGrammar(wordData.meanings);
     //showPrimaryDefinition(def);
@@ -110,15 +115,25 @@ export default function InputForm(props) {
               const [{ definition }] = wordDef;
 
               return (
-                <Definition
-                  key={index}
-                  phonics={phonics}
-                  sound={""}
-                  searchWord={userWord}
-                  partOfSpeech={word.partOfSpeech}
-                  meaning={definition}
-                  synonyms={word.synonyms}
-                />
+                <>
+                  {/* <Sound sound={sound} /> */}
+                  <Definition
+                    key={index}
+                    phonics={phonics}
+                    sound={sound}
+                    searchWord={userWord}
+                    partOfSpeech={word.partOfSpeech}
+                    meaning={definition}
+                    synonyms={word.synonyms}
+                  />
+                </>
+
+                // {audioElement.addEventListener(
+                //       "canplaythrough",
+                //       (e) => {
+                //         audioElement.play();
+                //       }
+                //     )}
               );
             })}
           </div>

@@ -2,8 +2,10 @@ import { Typography } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
+import Button from "@mui/material/Button";
 
 export default function Definition(props) {
+  const wordAudioElement = new Audio(props.sound);
   return (
     <>
       <div sx={{ marginBottom: 5 }}>
@@ -13,6 +15,13 @@ export default function Definition(props) {
               <Typography sx={{ fontSize: 36, fontWeight: 600 }}>
                 {`${props.searchWord}`}
               </Typography>
+              <Button
+                onClick={(e) => {
+                  wordAudioElement.play();
+                }}
+              >
+                Hear word
+              </Button>
               <Typography>{`${props.phonics}`}</Typography>
 
               <Typography sx={{ fontSize: 18 }}>
