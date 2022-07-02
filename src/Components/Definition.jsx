@@ -2,6 +2,7 @@ import { Typography } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 
 export default function Definition(props) {
@@ -12,6 +13,12 @@ export default function Definition(props) {
         <div sx={{ marginBottom: 5 }}>
           <Paper sx={{ maxWidth: 775, marginTop: 10 }} elevation={3}>
             <Card>
+              <CardMedia
+                component="img"
+                height="auto"
+                image={`${props.image}`}
+                alt="green iguana"
+              />
               <CardContent>
                 <Typography sx={{ fontSize: 36, fontWeight: 600 }}>
                   {`${props.searchWord}`}

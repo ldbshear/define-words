@@ -25,6 +25,12 @@ export default function Footer() {
           </Link>{" "}
         </Typography>
         <Copyright />
+
+        <a href="https://www.pexels.com">
+          <Typography variant="body2" align="center" color="text.secondary">
+            Photos provided by Pexel
+          </Typography>
+        </a>
         <Typography variant="body2" align="center" color="text.secondary">
           <Link color="inherit" href="https://louisadbjones.com/">
             Github
