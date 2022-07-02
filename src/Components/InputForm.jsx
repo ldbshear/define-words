@@ -35,7 +35,6 @@ export default function InputForm(props) {
   function handlePhotos(response) {
     console.log(response.data.photos);
     let wordPhoto = response.data.photos;
-    //let wordPhoto = response.data.photos[0].src.small;
 
     if (!wordPhoto) {
       return;
@@ -59,30 +58,6 @@ export default function InputForm(props) {
       getSound(wordSound);
     }
   }
-
-  // useEffect(() => {
-  //   function GetPhoto() {
-  //     //const [loading, setLoading] = useState(false);
-  //     //
-  //     const fetchImages = async () => {
-  //       //setLoading(true);
-  //       let url;
-  //       const header = `563492ad6f9170000100000115fb5e54b188467c96aa821aa725fe2a`;
-  //       url = `${searchUrl}?query={userWord}`;
-  //       try {
-  //         const response = await fetch(url, header);
-  //         console.log(response);
-  //         const data = await response.json();
-  //         console.log(data);
-  //       } catch (error) {
-  //         //setLoading(false);
-  //         console.log(error);
-  //       }
-  //     };
-  //   }
-
-  //   GetPhoto();
-  // }, [userWord]);
 
   useEffect(() => {
     const fetchPhoto = () => {
@@ -144,7 +119,6 @@ export default function InputForm(props) {
         noValidate
         autoComplete="off"
         sx={{
-          // bgcolor: "#cfe8fc",
           height: "100vh",
         }}
       >

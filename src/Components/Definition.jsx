@@ -13,13 +13,7 @@ export default function Definition(props) {
         <div sx={{ marginBottom: 5 }}>
           <Paper sx={{ maxWidth: 775, marginTop: 10 }} elevation={3}>
             <Card>
-              <CardMedia
-                component="img"
-                height=""
-                width=""
-                // image={`${props.image}`}
-                // alt="green iguana"
-              />
+              <CardMedia component="img" height="" width="" />
               <CardContent>
                 <Typography sx={{ fontSize: 36, fontWeight: 600 }}>
                   {`${props.searchWord}`}
