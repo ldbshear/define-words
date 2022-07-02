@@ -15,9 +15,10 @@ export default function Definition(props) {
             <Card>
               <CardMedia
                 component="img"
-                height="auto"
-                image={`${props.image}`}
-                alt="green iguana"
+                height=""
+                width=""
+                // image={`${props.image}`}
+                // alt="green iguana"
               />
               <CardContent>
                 <Typography sx={{ fontSize: 36, fontWeight: 600 }}>

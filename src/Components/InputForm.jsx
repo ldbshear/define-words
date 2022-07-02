@@ -5,6 +5,9 @@ import Button from "@mui/material/Button";
 import Definition from "./Definition";
 import axios from "axios";
 import Footer from "./Footer";
+import ImageList from "@mui/material/ImageList";
+import ImageListItem from "@mui/material/ImageListItem";
+import Card from "@mui/material/Card";
 
 const searchUrl = `https://api.pexels.com/v1/search`;
 
@@ -30,9 +33,15 @@ export default function InputForm(props) {
   }
 
   function handlePhotos(response) {
-    console.log(response.data.photos[0].src.medium);
-    let wordPhoto = response.data.photos[0].src.small;
-    setPhotos(wordPhoto);
+    console.log(response.data.photos);
+    let wordPhoto = response.data.photos;
+    //let wordPhoto = response.data.photos[0].src.small;
+
+    if (!wordPhoto) {
+      return;
+    } else {
+      setPhotos(wordPhoto);
+    }
   }
 
   function HandleData(response) {
@@ -80,7 +89,7 @@ export default function InputForm(props) {
       console.log("called useEffect");
       let url;
       const token = `563492ad6f9170000100000115fb5e54b188467c96aa821aa725fe2a`;
-      url = `${searchUrl}?query=${userWord}&per_page=1`;
+      url = `${searchUrl}?query=${userWord}&per_page=3`;
 
       axios
         .get(url, {
@@ -163,6 +172,8 @@ export default function InputForm(props) {
               marginTop: "2.5rem",
               width: 500,
               maxWidth: "100%",
+              bgcolor: "#2bbd7e",
+              color: "black",
             }}
             onClick={(e) => {
               HandleClick(e);
@@ -174,7 +185,36 @@ export default function InputForm(props) {
 
         {searchResult && (
           <div align="start">
-            <div></div>
+            {
+              <Card
+                align="center"
+                justify="baseline"
+                sx={{ marginTop: 16, height: 250 }}
+              >
+                <ImageList
+                  sx={{ width: 500, height: 450 }}
+                  cols={3}
+                  rowHeight={164}
+                >
+                  {photo.map((pic, index) => {
+                    const smallSize = pic.src;
+                    return (
+                      <>
+                        <ImageListItem key={index}>
+                          <img
+                            src={`${smallSize.tiny}?w=164&h=164&fit=crop&auto=format`}
+                            srcSet={`${smallSize.tiny}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                            alt=""
+                            loading="lazy"
+                          />
+                        </ImageListItem>
+                      </>
+                    );
+                  })}
+                </ImageList>
+              </Card>
+            }
+
             {definedWord.map((word, index) => {
               const wordDef = word.definitions;
               const [{ definition }] = wordDef;
@@ -189,7 +229,6 @@ export default function InputForm(props) {
                     partOfSpeech={word.partOfSpeech}
                     meaning={definition}
                     synonyms={word.synonyms}
-                    image={photo}
                   />
                 </>
               );

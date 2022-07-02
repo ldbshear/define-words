@@ -1,9 +1,11 @@
 import * as React from "react";
 import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
 
 export default function Title() {
   return (
     <>
+    <Box>
       <Typography
         align="center"
         fontWeight={500}
@@ -15,6 +17,8 @@ export default function Title() {
       >
         Define Words
       </Typography>
+    </Box>
+      
     </>
   );
 }

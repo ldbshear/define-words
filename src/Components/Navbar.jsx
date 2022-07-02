@@ -9,7 +9,7 @@ import Typography from "@mui/material/Typography";
 export default function Navbar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="static" sx={{ bgcolor: "#2bbd7e" }}>
         <Toolbar>
           {/* <IconButton
             size="large"
@@ -20,7 +20,11 @@ export default function Navbar() {
           >
             <MenuIcon />
           </IconButton> */}
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Typography
+            variant="h6"
+            component="div"
+            sx={{ flexGrow: 1, color: "black" }}
+          >
             Define Words
           </Typography>
         </Toolbar>

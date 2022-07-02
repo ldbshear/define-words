@@ -6,10 +6,7 @@ import Link from "@mui/material/Link";
 export default function Footer() {
   return (
     <>
-      <Box
-        sx={{ bgcolor: "background.paper", p: 5, mt: 10 }}
-        component="footer"
-      >
+      <Box sx={{ p: 5, mt: 10 }} component="footer">
         <Typography variant="h6" align="center" gutterBottom>
           {/* Footer */}
         </Typography>
